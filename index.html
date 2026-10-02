@@ -1,19 +1,491 @@
-
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>靜態網頁範例</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四國自駕 8 日之旅｜2026.10.03–10.10</title>
+<style>
+:root{--main:#0e7a5f;--main2:#16624d;--accent:#e8a13c;--bg:#f4f6f8;--card:#fff;--ink:#22303c;--sub:#5b6b7a;--line:#e3e8ee}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Hiragino Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+html{scroll-behavior:smooth}
+.hero{background:linear-gradient(135deg,#0e7a5f,#16624d 55%,#234a3e);color:#fff;padding:30px 16px 24px;text-align:center}
+.hero h1{font-size:1.55rem;letter-spacing:.06em}
+.hero p.sub{opacity:.92;margin-top:6px;font-size:.95rem}
+.hero .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:4px 13px;font-size:.8rem;text-decoration:none}
+nav.bar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);display:flex;overflow-x:auto;padding:8px 10px;gap:6px}
+nav.bar a{flex:0 0 auto;padding:6px 13px;border-radius:999px;font-size:.83rem;color:var(--sub);text-decoration:none;border:1px solid var(--line);background:#fff;white-space:nowrap}
+nav.bar a:hover{background:var(--main);color:#fff;border-color:var(--main)}
+nav.bar a.hot{background:#fff7e8;border-color:var(--accent);color:#8a5a00}
+nav.bar a.hot:hover{background:var(--accent);color:#fff}
+main{max-width:960px;margin:0 auto;padding:16px 14px 40px}
+section.day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:20px 0;box-shadow:0 1px 3px rgba(20,40,60,.06)}
+section.day h2{font-size:1.18rem;color:var(--main2);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.date{background:var(--main);color:#fff;border-radius:8px;padding:2px 10px;font-size:.82rem;font-weight:700}
+.meta{margin-top:7px;color:var(--sub);font-size:.88rem}
+.meta a{color:#1c4f8a}
+h3.sec{margin:15px 0 7px;font-size:.98rem;color:#2a5c4c;border-left:4px solid var(--accent);padding-left:8px}
+table.move{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:.84rem}
+table.move th{background:#eef4f1;color:#2a5c4c;text-align:left;padding:6px 8px;border:1px solid var(--line)}
+table.move td{padding:6px 8px;border:1px solid var(--line)}
+ul.tl{list-style:none;border-left:2px solid var(--line);margin:8px 0 4px 6px}
+ul.tl>li{position:relative;padding:0 0 13px 16px}
+ul.tl>li::before{content:"";position:absolute;left:-6px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--main);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--main)}
+.t{font-weight:700;color:#2a5c4c}
+.badge{display:inline-block;font-size:.7rem;border-radius:6px;padding:1px 7px;margin-right:6px;color:#fff;vertical-align:1px}
+.b-stop{background:#7c5cbf}.b-see{background:#0e7a5f}.b-note{background:#c96b2d}
+.links{margin-top:5px;font-size:.8rem}
+.links a{display:inline-block;margin:2px 6px 2px 0;padding:3px 11px;border-radius:999px;background:#eef4f1;color:#1d5b48;text-decoration:none;border:1px solid #cfe3da}
+.links a.map{background:#e8f0fb;color:#1c4f8a;border-color:#c4d8f0}
+.links a.official{background:#fdf3e0;color:#8a5a00;border-color:#ecd9b0}
+details{margin:9px 0;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;background:#fbfcfd}
+summary{cursor:pointer;font-weight:700;color:#2a5c4c;font-size:.9rem}
+details ul{margin:6px 0 2px 20px;font-size:.86rem}
+details ul li{margin:4px 0}
+.ok,.warn{border-radius:10px;padding:8px 12px;font-size:.85rem;margin:10px 0}
+.ok{background:#eef9f2;border:1px solid #bfe3cf}
+.warn{background:#fff7e8;border:1px solid #ecd9b0}
+.stat{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.stat .s{flex:1 1 150px;background:#eef4f1;border-radius:10px;padding:10px 12px;font-size:.85rem}
+.stat .s b{display:block;font-size:1.05rem;color:var(--main2)}
+footer{ text-align:center;color:var(--sub);font-size:.78rem;padding:22px 10px 46px}
+.btn-print{position:fixed;right:14px;bottom:14px;z-index:60;background:var(--main);color:#fff;border:none;border-radius:999px;padding:10px 16px;font-size:.85rem;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.ck{list-style:none}
+.ck li{margin:5px 0}
+.ck label{display:flex;gap:9px;align-items:flex-start;font-size:.87rem;cursor:pointer;background:#fbfcfd;border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+.ck label:hover{border-color:var(--main)}
+.ck input{margin-top:5px;accent-color:var(--main)}
+.ck input:checked+span{color:#9aa7b2;text-decoration:line-through}
+.ck a{color:#1c4f8a}
+.progress{position:sticky;top:49px;background:#fff;border-bottom:1px solid var(--line);padding:7px 14px;font-size:.83rem;color:var(--sub);z-index:40}
+.progress b{color:var(--main)}
+@media print{nav.bar,.btn-print,.progress{display:none}body{background:#fff}section.day{break-inside:avoid;box-shadow:none}}
+</style>
 </head>
 <body>
 
-    <h1>歡迎來到我的靜態網頁</h1>
-    <p>這是一個標準的 HTML 頁面。</p>
+<header class="hero">
+  <h1>四國自駕 8 日之旅</h1>
+  <p class="sub">2026.10.03（六）～10.10（六）｜高知 → 松山道後 → 琴平 → 新居濱 → 高知</p>
+  <div class="chips">
+    <a class="chip" href="https://www.tigerairtw.com" target="_blank">✈ 台灣虎航 IT250／IT251</a>
+    <a class="chip" href="https://tenki.jp" target="_blank">☀ tenki.jp 天氣</a>
+    <a class="chip" href="https://tide736.net/" target="_blank">🌊 潮汐 tide736</a>
+    <a class="chip" href="https://www.jma.go.jp" target="_blank">🌀 氣象廳・颱風</a>
+  </div>
+</header>
 
-    <!-- 核心連結：確保 aaa.md 與此 HTML 檔案在同一個目錄下 -->
-    <p>您可以點擊這裡查看 <a href="detail1003.md">detail1003.md 檔案</a>。</p>
+<nav class="bar">
+  <a href="#top">總覽</a>
+  <a href="#d1">Day1 桂濱</a><a href="#d2">Day2 日曜市</a><a href="#d3">Day3 道後</a>
+  <a href="#d4">Day4 石鎚</a><a href="#d5">Day5 祖谷</a><a href="#d6">Day6 父母濱</a>
+  <a href="#d7">Day7 別子銅山</a><a href="#d8">Day8 回國</a>
+  <a href="#checklist" class="hot">☑ 行前清單</a>
+</nav>
 
+<main id="top">
+
+<section class="day">
+  <h2>🗺 行程總覽</h2>
+  <div class="stat">
+    <div class="s"><b>8天7夜</b>2人自駕（租車+ETC）</div>
+    <div class="s"><b>約1,150km</b>油資約12,000-14,000円</div>
+    <div class="s"><b>過路費</b>約8,000-12,000円（ETC）</div>
+    <div class="s"><b>4處住宿</b>高知→道後→琴平→新居濱</div>
+  </div>
+  <h3 class="sec">航班</h3>
+  <ul class="tl">
+    <li><span class="t">10/3（六）</span> IT250 桃園T1 <b>08:20</b> → 高知 <b>12:00</b></li>
+    <li><span class="t">10/10（六）</span> IT251 高知 <b>14:00</b> → 桃園T1 <b>15:20</b>（起飛前60分截止報到）</li>
+  </ul>
+  <h3 class="sec">住宿</h3>
+  <details open><summary>住宿一覽（點開地圖）</summary><ul>
+    <li>10/3、10/4 <b>東橋INN高知</b>（高知市本町2-1-13）— 步行10分到日曜市／高知城
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/東横イン高知" target="_blank">地圖</a><a class="official" href="https://www.toyoko-inn.com/" target="_blank">官網</a></div></li>
+    <li>10/5、10/6 <b>葛城道後日式旅館</b>（松山市道後湯月町4-16）
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/道後温泉+旅館+葛城" target="_blank">地圖</a></div></li>
+    <li>10/7、10/8 <b>StayLuck KOTOHIRA</b>（琴平町293-1，公寓式附廚房・自助入住）
+      <div class="links"><a href="https://www.google.com/search?q=StayLuck+KOTOHIRA+琴平" target="_blank">搜尋</a></div></li>
+    <li>10/9 <b>東橋INN新居濱車站前</b>（新居浜市坂井町2-4-8，JR站正面）
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/東横イン新居浜駅前" target="_blank">地圖</a></div></li>
+  </ul></details>
+  <h3 class="sec">資料檔案</h3>
+  <div class="links">
+    <a href="detail1003.md" target="_blank">Day1 .md</a><a href="detail1004.md" target="_blank">Day2 .md</a>
+    <a href="detail1005.md" target="_blank">Day3 .md</a><a href="detail1006.md" target="_blank">Day4 .md</a>
+    <a href="detail1007.md" target="_blank">Day5 .md</a><a href="detail1008.md" target="_blank">Day6 .md</a>
+    <a href="detail1009.md" target="_blank">Day7 .md</a><a href="detail1010.md" target="_blank">Day8 .md</a>
+    <a class="official" href="travel-checklist.md" target="_blank">行前清單.md</a>
+  </div>
+</section>
+
+<section class="day" id="d1">
+  <h2><span class="date">10/03 六</span> Day 1 抵達高知．桂濱公園</h2>
+  <p class="meta">住宿：<a href="https://www.google.com/maps/search/東横イン高知" target="_blank">東橋INN高知</a>（本町2-1-13）</p>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>高知空港 → 桂浜</td><td>33km</td><td>45分</td></tr>
+    <tr><td>桂浜 → 飯店</td><td>16km</td><td>30分</td></tr>
+    <tr><td>飯店 ↔ ワークマン高知若松店</td><td>1km</td><td>5分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">12:00</span> 抵達高知機場；12:50取車（台灣駕照＋日文譯本、ETC卡）</li>
+    <li><span class="t">14:00-16:00</span> 桂浜公園
+      <div><span class="badge b-stop">停車</span>桂浜公園有料停車場約500円／次；週六客滿用周邊民營</div>
+      <div><span class="badge b-see">看點</span>坂本龍馬銅像眺望太平洋、「月之名所」海濱散步（禁下水）</div>
+      <div class="links"><a class="official" href="https://kochi-tabi.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/桂浜公園" target="_blank">地圖</a><a href="https://www.google.com/search?q=桂浜+高知+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">16:30</span> 東橋INN高知 Check-in</li>
+    <li><span class="t">17:00-17:40</span> <b>ワークマンプラス 高知若松店</b>（車程5分）
+      <div><span class="badge b-see">看點</span>超人氣機能服飾賣場：發熱衣、雨具、耐走鞋等旅遊實用單品</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/ワークマンプラス高知若松店" target="_blank">地圖</a><a class="official" href="https://www.workman.co.jp/" target="_blank">官網</a></div></li>
+    <li><span class="t">17:45</span> 超市採買（東橋INN無廚房→買熟食；大廳有微波爐）</li>
+    <li><span class="t">18:30</span> 旅館內晚餐；（自由參加）播磨屋橋夜景散步</li>
+  </ul>
+  <details><summary>🛣 沿途補給（可停可不停）</summary><ul>
+    <li><b>イオンモール高知</b>（機場→市區順路）：大賣場、美食街、廁所 <a href="https://www.google.com/maps/search/イオンモール高知" target="_blank">地圖</a></li>
+    <li><b>サニーマート</b>（高知在地超市連鎖）：飯店附近採買 <a href="https://www.google.com/maps/search/サニーマート+高知市" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>改逛桂浜旁「坂本龍馬紀念館」（室內）<a href="https://kochi-ryoma.jp" target="_blank">官網</a> <a href="https://www.google.com/maps/search/坂本龍馬記念館" target="_blank">地圖</a></li>
+    <li>或市區「高知城歴史博物館」（常設展免費）</li>
+  </ul></details>
+  <div class="links"><a class="map" href="https://www.google.com/search?q=高知市+天気予報" target="_blank">天氣</a><a class="official" href="https://www.tigerairtw.com" target="_blank">航班</a></div>
+</section>
+
+<section class="day" id="d2">
+  <h2><span class="date">10/04 日</span> Day 2 日曜市．名越屋沉下橋．安居溪谷</h2>
+  <p class="meta">住宿：東橋INN高知（續住）※日曜市／高知城 <b>步行10分</b>可達，不開車</p>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>飯店 → 日曜市</td><td>800m</td><td>步行10-12分</td></tr>
+    <tr><td>飯店 → 名越屋沈下橋（R33→440）</td><td>40km</td><td>55分</td></tr>
+    <tr><td>名越屋 → 安居渓谷</td><td>28km</td><td>50分</td></tr>
+    <tr><td>安居渓谷 → 飯店</td><td>55km</td><td>1小時15分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">08:15</span> 步行前往日曜市</li>
+    <li><span class="t">08:30-09:40</span> 高知星期天集市（日曜市）
+      <div><span class="badge b-see">看點</span>日本最大規模、300年以上歷史露天市集（約7:00-15:00）；文旦、柚子、生薑、現做小吃</div>
+      <div class="links"><a class="official" href="https://kochi-tabi.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/高知日曜市" target="_blank">地圖</a><a href="https://www.google.com/search?q=高知+日曜市+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">09:40-10:15</span>（自由參加）高知城：現存12天守（9:00開城、530円）<a class="official" href="https://kochipark.jp/kochijyo/" target="_blank">官網</a></li>
+    <li><span class="t">10:30</span> 出發 → <span class="t">11:25-12:00</span> 名越屋沈下橋
+      <div><span class="badge b-stop">停車</span>橋旁免費停車場（附廁所）</div>
+      <div><span class="badge b-see">看點</span>無欄杆橋身×清澈仁淀川＝「仁淀藍」（晴天中午前最佳）</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/名越屋沈下橋" target="_blank">地圖</a><a href="https://www.google.com/search?q=名越屋沈下橋+仁淀ブルー" target="_blank">遊記</a></div></li>
+    <li><span class="t">12:50-13:45</span> 午餐：安居渓谷温泉やまびこ荘食堂（附溫泉）</li>
+    <li><span class="t">13:45-15:15</span> 安居溪谷遊步道 → 水晶淵
+      <div><span class="badge b-see">看點</span>仁淀藍最美精華段；「水晶淵」極致透明Tiffany藍（來回1-1.5小時）</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/安居渓谷" target="_blank">地圖</a><a href="https://www.google.com/search?q=安居渓谷+水晶淵+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">18:00</span> 晚餐：ひろめ横丁（炙燒鰹魚半生肉片）<a class="map" href="https://www.google.com/maps/search/ひろめ横丁" target="_blank">地圖</a></li>
+  </ul>
+  <details><summary>🛣 沿途補給</summary><ul>
+    <li><b>まきのさんの道の駅・佐川</b>（R33沿途）：牧野富太郎故鄉道の駅、農產直賣、食堂、廁所 <a href="https://www.google.com/maps/search/まきのさんの道の駅+佐川町" target="_blank">地圖</a></li>
+    <li><b>やまびこ荘</b>（午餐定點）：廁所＋食堂＋溫泉 <a href="https://www.google.com/maps/search/安居渓谷+やまびこ荘" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>日曜市多風雨無阻；沉下橋小雨可行但「仁淀藍」需晴天</li>
+    <li>步道濕滑→改やまびこ荘泡湯；整日大雨→龍河洞鐘乳石洞／高知城歴史博物館</li>
+  </ul></details>
+</section>
+
+<section class="day" id="d3">
+  <h2><span class="date">10/05 一</span> Day 3 中津溪谷 → 松山．道後溫泉</h2>
+  <p class="meta">住宿：<a href="https://www.google.com/maps/search/道後温泉+旅館+葛城" target="_blank">葛城道後日式旅館</a>（松山市道後湯月町4-16）</p>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>高知 → 中津渓谷（R33）</td><td>55km</td><td>1小時10分</td></tr>
+    <tr><td>中津渓谷 → 松山IC（いのIC→松山道）</td><td>75km</td><td>1小時40分</td></tr>
+    <tr><td>松山IC → ワークマン松山インター店</td><td>2km</td><td>5分</td></tr>
+    <tr><td>Workman → 道後旅館</td><td>12km</td><td>25分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">08:30</span> 退房出發（先加滿油）</li>
+    <li><span class="t">09:40-11:30</span> 中津溪谷
+      <div><span class="badge b-stop">停車</span>遊步道入口免費停車場（附廁所）</div>
+      <div><span class="badge b-see">看點</span>巨岩遊步道＋壺穴群；終點「雨龍瀑布」（來回3km／1.5小時）</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/中津渓谷" target="_blank">地圖</a><a href="https://www.google.com/search?q=中津渓谷+雨龍の滝+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">12:50</span> 松山IC下交流道</li>
+    <li><span class="t">13:00-13:45</span> <b>ワークマンプラス 松山インター店</b>
+      <div><span class="badge b-see">看點</span>雨具、發熱衣、好走鞋襪等旅遊裝備補給</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/ワークマンプラス松山インター店" target="_blank">地圖</a><a class="official" href="https://www.workman.co.jp/" target="_blank">官網</a></div></li>
+    <li><span class="t">14:05</span> 旅館寄放行李 → 14:20 道後商店街午餐（鯛魚飯）</li>
+    <li><span class="t">15:30</span> 道後溫泉本館
+      <div><span class="badge b-see">看點</span>日本三古湯、3000年歷史、重要文化財；《少爺》舞台、《神隱少女》湯屋原型傳聞</div>
+      <div class="ok">✓ 已驗證：保存修理2024/12完工；營業6:00-23:00（受付至22:30）</div>
+      <div class="links"><a class="official" href="https://dogo.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/道後温泉本館" target="_blank">地圖</a><a href="https://www.google.com/search?q=道後温泉本館+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">17:00</span> 少爺機關鐘整點表演 → 17:20 商店街散策 → 18:00 會席晚餐</li>
+  </ul>
+  <details><summary>🛣 沿途補給</summary><ul>
+    <li><b>まきのさんの道の駅・佐川</b>（R33）<a href="https://www.google.com/maps/search/まきのさんの道の駅+佐川町" target="_blank">地圖</a></li>
+    <li><b>いの町市街</b>：山區前最後補給 <a href="https://www.google.com/maps/search/伊野町+コンビニ" target="_blank">地圖</a></li>
+    <li><b>桜三里PA</b>（松山道；以現場標誌為準）<a href="https://www.google.com/maps/search/桜三里パーキングエリア" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>中津溪谷濕滑→提早往松山：松山城（纜車+天守）、大街道商店街、道後泡湯</li>
+  </ul></details>
+</section>
+
+<section class="day" id="d4">
+  <h2><span class="date">10/06 二</span> Day 4 石鎚スカイライン．面河渓自然景觀自駕</h2>
+  <p class="meta">住宿：葛城道後旅館（續住）｜路線：R33 → 県道12号「もみじライン」→ 石鎚スカイライン</p>
+  <div class="ok">✓ 已驗證：石鎚スカイライン＝愛媛県道12号，<b>免費道路</b>；夜間通行止、冬季封鎖（10月通行OK）、異常氣象時封閉</div>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>道後 → 久万高原（R33）</td><td>45km</td><td>1小時10分</td></tr>
+    <tr><td>久万高原 → 面河渓入口（もみじライン）</td><td>15km</td><td>25分</td></tr>
+    <tr><td>面河渓入口 → 土小屋（スカイライン）</td><td>14km</td><td>35分</td></tr>
+    <tr><td>回程同路 → 道後</td><td>—</td><td>約2小時10分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">08:00</span> 出發（山頂約10°C，帶保暖外套）；09:15通過久万高原市街（最後補給）</li>
+    <li><span class="t">10:20-12:10</span> 石鎚スカイライン → 土小屋（標高1,492m）
+      <div><span class="badge b-stop">停車</span>土小屋免費停車場</div>
+      <div><span class="badge b-see">看點</span>西日本最高峰石鎚山（1,982m）雄偉山容；石鎚神社土小屋遙拜殿；長尾尾根展望所（石鎚山＋御来光之瀧）</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/石鎚スカイライン" target="_blank">地圖</a><a class="map" href="https://www.google.com/maps/search/石鎚山+土小屋" target="_blank">土小屋</a><a href="https://www.google.com/search?q=石鎚スカイライン+土小屋+遊記" target="_blank">遊記</a><a class="official" href="https://www.google.com/search?q=石鎚山ロープウェイ+公式" target="_blank">纜車</a></div></li>
+    <li><span class="t">12:10</span> 土小屋食堂午餐（山菜料理）或自備便當 → 12:40 下山</li>
+    <li><span class="t">13:20-14:50</span> 面河渓散策（國家名勝）
+      <div><span class="badge b-stop">停車</span>面河渓入口停車場（遊步道入口）</div>
+      <div><span class="badge b-see">看點</span>仁淀川上流9.6km V字溪谷：五色河原・五色橋、蓬莱峡奇岩、御来光之瀧；面河山岳博物館</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/面河渓" target="_blank">地圖</a><a href="https://www.google.com/search?q=面河渓+散策+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">16:40</span> 回道後 → 17:00 溫泉本館再泡一輪 → 18:00 會席晚餐</li>
+  </ul>
+  <details><summary>🛣 沿途補給</summary><ul>
+    <li><b>久万高原町市街</b>（R33）：上山前最後補給 <a href="https://www.google.com/maps/search/久万高原町+コンビニ" target="_blank">地圖</a></li>
+    <li><b>面河渓入口</b>：停車場、廁所 <a href="https://www.google.com/maps/search/面河渓" target="_blank">地圖</a></li>
+    <li><b>土小屋</b>：免費停車場、食堂、廁所 <a href="https://www.google.com/maps/search/石鎚山+土小屋" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>雨霧中土小屋無視野＋異常氣象道路封閉→出發前確認路況，雨大取消上山</li>
+    <li>小雨：只走面河渓短程散策；大雨：松山城＋大街道＋道後泡湯</li>
+  </ul></details>
+  <div class="links"><a class="map" href="https://www.google.com/search?q=久万高原町+天気予報" target="_blank">天氣</a><a href="https://www.google.com/search?q=石鎚スカイライン+通行規制" target="_blank">路況</a></div>
+</section>
+
+<section class="day" id="d5">
+  <h2><span class="date">10/07 三</span> Day 5 道後秋祭 → 祖谷溪 → 琴平</h2>
+  <p class="meta">住宿：StayLuck KOTOHIRA（琴平町293-1，公寓式・自助入住）｜本日移動最多，含休息抓3.5hr緩衝</p>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>道後 → 祖谷（松山道→三島川之江→R32→大歩危→R45）</td><td>130km</td><td>2小時20分</td></tr>
+    <tr><td>小便小僧 → かずら橋</td><td>7km</td><td>15分</td></tr>
+    <tr><td>かずら橋 → 大歩危峡</td><td>15km</td><td>30分</td></tr>
+    <tr><td>大歩危 → 琴平（R32）</td><td>70km</td><td>1小時20分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">06:00-07:00</span> 松山道後秋祭（每年10/6-10/8前後；神轎、祭禮、攤販）
+      <div class="links"><a class="official" href="https://dogo.jp" target="_blank">官網</a><a href="https://www.google.com/search?q=道後温泉+秋季大祭+2026+日程" target="_blank">日程</a><a class="map" href="https://www.google.com/maps/search/道後温泉+湯神社" target="_blank">地圖</a></div></li>
+    <li><span class="t">08:30</span> 退房出發 → <span class="t">10:50-11:20</span> 祖谷溪「小便小僧」
+      <div><span class="badge b-stop">停車</span>路旁免費觀景停車帶</div>
+      <div><span class="badge b-see">看點</span>深谷斷崖上的試膽銅像、祖谷溪絕壁</div>
+      <div class="links"><a class="official" href="https://miyoshi-tourism.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/祖谷渓+小便小僧" target="_blank">地圖</a></div></li>
+    <li><span class="t">11:35-13:40</span> 祖谷かずら橋（午餐：橋畔祖谷蕎麥麵）
+      <div><span class="badge b-stop">停車</span>橋畔免費停車場</div>
+      <div><span class="badge b-see">看點</span>長45m、寬2m、離水面14m藤蔓橋；平家落人傳說；每三年重編（過橋550円）</div>
+      <div class="links"><a class="official" href="https://miyoshi-tourism.jp/spot/46/" target="_blank">官網</a><a class="official" href="https://www.pref.tokushima.lg.jp/japanese/tourism/spot/kazurabashi" target="_blank">德島縣</a><a class="map" href="https://www.google.com/maps/search/祖谷のかずら橋" target="_blank">地圖</a></div></li>
+    <li><span class="t">14:10-16:00</span> 大歩危峽「まんなか展望所」（來回50分）
+      <div><span class="badge b-stop">停車</span>遊覽船乘船處旁／道の駅免費停車</div>
+      <div><span class="badge b-see">看點</span>V字峽谷奇岩巨石；（自由參加）遊覽船1,080円／30分</div>
+      <div class="links"><a class="official" href="https://miyoshi-tourism.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/大歩危峡まんなか展望所" target="_blank">地圖</a></div></li>
+    <li><span class="t">17:30</span> StayLuck KOTOHIRA Check-in → 琴平站前晚餐或自炊（烏龍麵店多只到下午）</li>
+  </ul>
+  <details><summary>🛣 沿途補給</summary><ul>
+    <li><b>桜三里PA</b>（松山道；以現場標誌為準）<a href="https://www.google.com/maps/search/桜三里パーキングエリア" target="_blank">地圖</a></li>
+    <li><b>道の駅大歩危</b>（R32）：廁所＋土產＋小吃 <a href="https://www.google.com/maps/search/道の駅大歩危" target="_blank">地圖</a></li>
+    <li><b>池田町市街</b>（R32中途）：便利店、超市 <a href="https://www.google.com/maps/search/三好市池田町+コンビニ" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>藤蔓橋雨天濕滑→遠觀不過橋；大歩危改搭遊覽船（備雨衣）</li>
+    <li>提早抵達琴平：表參道商店街（有屋簷）、金刀比羅宮寶物館（室內）</li>
+  </ul></details>
+</section>
+
+<section class="day" id="d6">
+  <h2><span class="date">10/08 四</span> Day 6 金刀比羅宮 → 紫雲出山 → 父母濱夕陽</h2>
+  <p class="meta">住宿：StayLuck KOTOHIRA（續住）</p>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>StayLuck → 金刀比羅宮表參道</td><td>2km</td><td>10分</td></tr>
+    <tr><td>金刀比羅宮 → 紫雲出山</td><td>50km</td><td>1小時15分</td></tr>
+    <tr><td>紫雲出山 → 父母ヶ浜</td><td>25km</td><td>45分</td></tr>
+    <tr><td>父母ヶ浜 → 琴平</td><td>40km</td><td>55分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">07:40</span> 開車至金刀比羅宮（停車：表參道周邊民營停車場約500円）</li>
+    <li><span class="t">08:00-10:30</span> 金刀比羅宮（こんぴらさん）
+      <div><span class="badge b-see">看點</span>海上交通守護神總本宮：785階至御本宮（單程40-50分）、大鳥居、旭社、こんぴら狗、御本宮展望；體力好續走奥社（計1368階）</div>
+      <div class="links"><a class="official" href="https://www.kotohiragu.or.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/金刀比羅宮" target="_blank">地圖</a><a href="https://www.google.com/search?q=金刀比羅宮+參道+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">11:45-13:15</span> 紫雲出山山頂展望台（先買便當上山野餐）
+      <div><span class="badge b-stop">停車</span>山頂免費停車場（車位有限）</div>
+      <div><span class="badge b-see">看點</span>360度瀨戶內海多島美；遠望瀨戶大橋與石鎚山</div>
+      <div class="links"><a class="official" href="https://www.mitoyo-kanko.com" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/紫雲出山山頂展望台" target="_blank">地圖</a><a href="https://www.google.com/search?q=紫雲出山+展望台+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">14:00-15:30</span> 抵達父母ヶ浜：有明神社參拜、確認潮汐風向</li>
+    <li><span class="t">15:30-18:00</span> 父母ヶ浜「天空之鏡」
+      <div><span class="badge b-stop">停車</span>海水浴場停車場（淡季收費低或免費）</div>
+      <div><span class="badge b-see">看點</span>干潮＋日落＋少風＝鏡面倒影；有明神社鳥居取景；日本夕陽百選（日落約17:40）</div>
+      <div class="ok">🌊 潮汐確認：<a href="https://tide736.net/" target="_blank">tide736.net</a>（香川県・観音寺；干潮需落在15:30-18:00）</div>
+      <div class="links"><a class="official" href="https://kanoniji-kankou.jp" target="_blank">官網</a><a class="map" href="https://www.google.com/maps/search/父母ヶ浜" target="_blank">地圖</a><a href="https://www.google.com/search?q=父母ヶ浜+天空の鏡+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">19:00</span> 回琴平 → 站前商店街或自炊晚餐</li>
+  </ul>
+  <details><summary>🛣 沿途補給</summary><ul>
+    <li><b>マルナカ</b>（R11沿線香川在地超市）：便當、廁所 <a href="https://www.google.com/maps/search/マルナカ+丸亀" target="_blank">地圖</a></li>
+    <li><b>山本町市街</b>（Skyline入口）：上山前最後補給 <a href="https://www.google.com/maps/search/山本町+三豊市+コンビニ" target="_blank">地圖</a></li>
+    <li><b>豊浜市街</b>（父母ヶ浜前）：上廁所、買熱飲 <a href="https://www.google.com/maps/search/豊浜町+観音寺+コンビニ" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>天空之鏡需無風無雨→取消海邊；改四國水族館（宇多津，室內）或丸龜城＋MIMOCA</li>
+    <li>金刀比羅宮小雨可行（人少），可改為當日重點</li>
+  </ul></details>
+</section>
+
+<section class="day" id="d7">
+  <h2><span class="date">10/09 五</span> Day 7 別子銅山遺產巡禮 → 新居濱</h2>
+  <p class="meta">住宿：<a href="https://www.google.com/maps/search/東横イン新居浜駅前" target="_blank">東橋INN新居濱車站前</a>（坂井町2-4-8，JR站正面）</p>
+  <div class="ok">✓ 已驗證：礦山列車在「マイントピア別子・端出場」運行中（2026時刻表更新中）；<b>鉱山観光套票1,500円、最終受付15:50</b></div>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>琴平 → 別子銅山記念館（R11→山根）</td><td>60km</td><td>1小時15分</td></tr>
+    <tr><td>記念館 → マイントピア別子・端出場（県道47号）</td><td>15km</td><td>30分</td></tr>
+    <tr><td>端出場 → 東平（時雨橋前左轉5km）</td><td>10km</td><td>30分</td></tr>
+    <tr><td>東平 → 新居浜駅前</td><td>25km</td><td>50分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">08:30</span> 退房出發（新居浜市區加滿油）</li>
+    <li><span class="t">09:40-10:40</span> 別子銅山記念館（山根公園內）
+      <div><span class="badge b-stop">停車</span>免費停車場</div>
+      <div><span class="badge b-see">看點</span>住友發祥之地；免費入館；真實「別子1号」蒸氣機關車靜態展示；大鉑礦石神轎</div>
+      <div class="warn">※9:00-16:00；休館＝週一＋國定假日（10/9週五OK）；館內禁攝影</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/別子銅山記念館" target="_blank">地圖</a><a href="https://www.google.com/search?q=別子銅山記念館+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">11:15-13:30</span> マイントピア別子・端出場（道の駅併設）
+      <div><span class="badge b-stop">停車</span>免費大停車場（381台）</div>
+      <div><span class="badge b-see">看點</span>★礦山觀光列車：端出場站⇄開運站（400m）＋觀光坑道333m；文化財鐵橋隧道；天空之湯650円；砂金體驗1,000円</div>
+      <div>午餐：本館餐飲部、道の駅名物伊予柑霜淇淋</div>
+      <div class="links"><a class="official" href="https://besshi.com" target="_blank">官網</a><a class="official" href="https://besshi.com/hadeba/mine-train/timetable/" target="_blank">列車時刻表</a><a class="map" href="https://www.google.com/maps/search/マイントピア別子" target="_blank">地圖</a><a href="https://www.google.com/search?q=マイントピア別子+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">14:00-15:00</span> 東平（標高750m）＋東平展望台
+      <div><span class="badge b-stop">停車</span>東平免費大停車場</div>
+      <div><span class="badge b-see">看點</span>「東洋的馬丘比丘」：東平貯鉱庫遺跡、產業遺跡群、歷史資料館（免費）、俯瞰笹ヶ峰連山</div>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/東平+マイントピア別子" target="_blank">地圖</a><a href="https://www.google.com/search?q=東洋のマチュピチュ+東平+遊記" target="_blank">遊記</a></div></li>
+    <li><span class="t">16:00</span> Check-in → 站前商店街、採購蜜柑 → 18:30 站前居酒屋晚餐</li>
+  </ul>
+  <details><summary>🛣 沿途補給</summary><ul>
+    <li><b>マルナカ</b>（R11沿線）：上山前買午餐飲水 <a href="https://www.google.com/maps/search/マルナカ+多度津" target="_blank">地圖</a></li>
+    <li><b>道の駅マイントピア別子</b>：餐飲、土產、廁所 <a href="https://www.google.com/maps/search/道の駅マイントピア別子" target="_blank">地圖</a></li>
+  </ul></details>
+  <details><summary>☔ 雨天備案</summary><ul>
+    <li>列車小雨照開（備雨衣）；坑道為室內；記念館室內免費</li>
+    <li>東平起霧直接略過→記念館＋マイントピア＋天空之湯，提早下山入住</li>
+  </ul></details>
+</section>
+
+<section class="day" id="d8">
+  <h2><span class="date">10/10 六</span> Day 8 還車回國</h2>
+  <p class="meta">IT251 高知 14:00 → 桃園T1 15:20（起飛前60分截止報到）</p>
+  <table class="move"><tr><th>移動</th><th>距離</th><th>時間</th></tr>
+    <tr><td>新居浜駅前 → 新居浜IC</td><td>5km</td><td>10分</td></tr>
+    <tr><td>新居浜IC → 高知空港（松山道→三島川之江→高知道）</td><td>115km</td><td>1小時20分</td></tr>
+    <tr><td>加油站 → 租車中心</td><td>5km</td><td>10分</td></tr></table>
+  <h3 class="sec">行程時間表</h3>
+  <ul class="tl">
+    <li><span class="t">07:30</span> 早餐 → 08:15 退房 → <span class="t">08:30</span> 出發（過路費約3,000円）</li>
+    <li><span class="t">09:50</span> 高知道PA休息（大豐PA／立川PA，以現場標誌為準）</li>
+    <li><span class="t">10:00</span> 機場前加油滿油（保留收據）→ 10:30 還車</li>
+    <li><span class="t">11:00</span> 航廈報到 → 12:00 出境免稅 → 13:30 登機 → <span class="t">14:00</span> 起飛 → <span class="t">15:20</span> 抵達桃園T1</li>
+  </ul>
+  <div class="links"><a class="official" href="https://www.tigerairtw.com" target="_blank">航班動態</a><a href="https://www.w-nexco.co.jp/" target="_blank">道路路況</a><a href="https://www.jma.go.jp" target="_blank">颱風資訊</a></div>
+</section>
+
+<section class="day" id="checklist">
+  <h2>☑ 行前確認清單（可勾選，瀏覽器自動記憶）</h2>
+  <div class="progress">已確認 <b id="done">0</b> ／ <b id="total">0</b> 項</div>
+  <h3 class="sec">A. 證件與租車（出發前2週）</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="a1"><span><b>A-1</b> 台灣駕照＋日文譯本（※台灣發行國際駕照在日本不通用；JAF或台灣代辦申請，盡早辦理）</span></label></li>
+    <li><label><input type="checkbox" data-k="a2"><span><b>A-2</b> 護照效期6個月以上</span></label></li>
+    <li><label><input type="checkbox" data-k="a3"><span><b>A-3</b> 租車預約確認（10/3 13:00取車、10/10 10:30還車、營業時間）</span></label></li>
+    <li><label><input type="checkbox" data-k="a4"><span><b>A-4</b> ETC卡加購（全程過路費約8,000-12,000円）</span></label></li>
+    <li><label><input type="checkbox" data-k="a5"><span><b>A-5</b> 租車保險（免責補償、第三人責任）</span></label></li>
+    <li><label><input type="checkbox" data-k="a6"><span><b>A-6</b> 旅遊平安險</span></label></li>
+  </ul>
+  <h3 class="sec">B. 航班（出發前3天～前1天）</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="b1"><span><b>B-1</b> IT250／IT251 時間確認（<a href="https://www.tigerairtw.com" target="_blank">台灣虎航</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="b2"><span><b>B-2</b> 線上報到／選位／行李加購（無免費託運）</span></label></li>
+    <li><label><input type="checkbox" data-k="b3"><span><b>B-3</b> 報到規則：起飛前2小時開櫃、前60分截止</span></label></li>
+  </ul>
+  <h3 class="sec">C. 住宿確認</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="c1"><span><b>C-1</b> 東橋INN高知：房內設備、微波爐（<a href="https://www.toyoko-inn.com/" target="_blank">官網</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="c2"><span><b>C-2</b> 葛城道後旅館：會席晚餐預約、入住時間、停車位</span></label></li>
+    <li><label><input type="checkbox" data-k="c3"><span><b>C-3</b> StayLuck KOTOHIRA：★自助入住密碼信確認收到、停車場、廚房</span></label></li>
+    <li><label><input type="checkbox" data-k="c4"><span><b>C-4</b> 東橋INN新居濱：標準流程</span></label></li>
+    <li><label><input type="checkbox" data-k="c5"><span><b>C-5</b> 各住宿取消條款與颱風應對</span></label></li>
+  </ul>
+  <h3 class="sec">D. 景點營運</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="d1"><span><b>D-1</b> 高知日曜市10/4照常（<a href="https://www.google.com/search?q=高知+日曜市+開催" target="_blank">查詢</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d2"><span><b>D-2</b> 高知城天守開放（<a href="https://kochipark.jp/kochijyo/" target="_blank">官網</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d3"><span><b>D-3</b> やまびこ荘食堂營業日（10/4午餐）</span></label></li>
+    <li><label><input type="checkbox" data-k="d4"><span><b>D-4</b> 中津溪谷步道開放狀況（<a href="https://www.google.com/search?q=中津渓谷+通行+規制" target="_blank">查詢</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d5"><span><b>D-5</b> 道後本館★已驗證6:00-23:00、修理完工（<a href="https://dogo.jp" target="_blank">dogo.jp</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d6"><span><b>D-6</b> 道後秋季大祭2026日程（<a href="https://www.google.com/search?q=道後温泉+秋季大祭+2026" target="_blank">查詢</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d7"><span><b>D-7</b> かずら橋開橋時間（<a href="https://miyoshi-tourism.jp/spot/46/" target="_blank">三好市官方</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d8"><span><b>D-8</b> 大歩危遊覽船營運時間</span></label></li>
+    <li><label><input type="checkbox" data-k="d9"><span><b>D-9</b> 金刀比羅宮寶物館等時間（<a href="https://www.kotohiragu.or.jp" target="_blank">官網</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d10"><span><b>D-10</b> 紫雲出山Skyline路況（<a href="https://www.mitoyo-kanko.com" target="_blank">三豊市観光</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d11"><span><b>D-11</b> 別子銅山記念館★已驗證免費、9:00-16:00、週一+國定假日休</span></label></li>
+    <li><label><input type="checkbox" data-k="d12"><span><b>D-12</b> 礦山列車★已驗證2026運行中（<a href="https://besshi.com/hadeba/mine-train/timetable/" target="_blank">時刻表</a>）→確認10/9無臨時休園</span></label></li>
+    <li><label><input type="checkbox" data-k="d13"><span><b>D-13</b> 高知機場租車中心還車流程與營業時間</span></label></li>
+    <li><label><input type="checkbox" data-k="d14"><span><b>D-14</b> 石鎚スカイライン★已驗證免費、10月通行OK（<a href="https://www.google.com/search?q=石鎚スカイライン+通行規制" target="_blank">路況</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="d15"><span><b>D-15</b> ワークマン兩門市營業時間（<a href="https://www.workman.co.jp/" target="_blank">官網</a>）</span></label></li>
+  </ul>
+  <h3 class="sec">E. 天氣與自然條件（出發前3天起每天）</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="e1"><span><b>E-1</b> 天氣預報每天看（<a href="https://tenki.jp" target="_blank">tenki.jp</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="e2"><span><b>E-2</b> 颱風動態（<a href="https://www.jma.go.jp" target="_blank">氣象廳</a>）</span></label></li>
+    <li><label><input type="checkbox" data-k="e3"><span><b>E-3</b> 10/8潮汐：干潮時刻×日落17:40（<a href="https://tide736.net/" target="_blank">tide736</a>查観音寺）</span></label></li>
+    <li><label><input type="checkbox" data-k="e4"><span><b>E-4</b> 山區清晨約10°C保暖裝備（土小屋1,492m／東平750m）</span></label></li>
+  </ul>
+  <h3 class="sec">F. 現金・通訊・裝備</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="f1"><span><b>F-1</b> 日圓現金（山區小店多只收現金）</span></label></li>
+    <li><label><input type="checkbox" data-k="f2"><span><b>F-2</b> eSIM／漫遊開通測試</span></label></li>
+    <li><label><input type="checkbox" data-k="f3"><span><b>F-3</b> Google Maps離線地圖（四國4縣）</span></label></li>
+    <li><label><input type="checkbox" data-k="f4"><span><b>F-4</b> 雨具：折傘＋輕便雨衣</span></label></li>
+    <li><label><input type="checkbox" data-k="f5"><span><b>F-5</b> 防滑好走鞋</span></label></li>
+    <li><label><input type="checkbox" data-k="f6"><span><b>F-6</b> 保暖外套</span></label></li>
+    <li><label><input type="checkbox" data-k="f7"><span><b>F-7</b> 手機車架、充電線、行動電源</span></label></li>
+    <li><label><input type="checkbox" data-k="f8"><span><b>F-8</b> 相機腳架（天空之鏡低速拍攝）</span></label></li>
+    <li><label><input type="checkbox" data-k="f9"><span><b>F-9</b> 租車公司緊急聯絡電話</span></label></li>
+    <li><label><input type="checkbox" data-k="f10"><span><b>F-10</b> 日本緊急電話：110警察／119救護</span></label></li>
+  </ul>
+  <h3 class="sec">G. 出發前一晚</h3>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-k="g1"><span><b>G-1</b> 航班無變動</span></label></li>
+    <li><label><input type="checkbox" data-k="g2"><span><b>G-2</b> 隔日天氣（高知）</span></label></li>
+    <li><label><input type="checkbox" data-k="g3"><span><b>G-3</b> 護照、駕照譯本、現金、機票</span></label></li>
+    <li><label><input type="checkbox" data-k="g4"><span><b>G-4</b> StayLuck密碼信已收到</span></label></li>
+  </ul>
+  <details><summary>🔍 官網驗證結果（2026-10-01 實測）</summary><ul>
+    <li><b>✓ 已驗證</b>：dogo.jp（本館6:00-23:00、修理完工）、kochi-tabi.jp、miyoshi-tourism.jp（有繁中）、tide736.net、besshi.com（列車2026運行中、1,500円、受付至15:50）、mitoyo-kanko.com、道の駅（まきのさん佐川／伯方S.C.パーク／よしうみいき／マイントピア別子）、別子銅山記念館（免費9-16）、石鎚スカイライン（免費・夜間通行止・10月OK）、面河渓（國家名勝）</li>
+    <li><b>✗ 已修正</b>：道の駅雪どけ不存在→改まきのさん佐川；礦山列車位置→マイントピア別子端出場；記念館9-16非9-17；mitoyo-kanko.jp→.com</li>
+    <li><b>⚠ 自行確認</b>：kotohiragu.or.jp、kochi-ryoma.jp、kanoniji-kankou.jp（可能擋爬蟲）；桜三里PA／大豊PA／立川PA以現場標誌為準</li>
+  </ul></details>
+</section>
+
+</main>
+<footer>
+  資料檔：detail1003～1010（.txt／.md）・travel-checklist（.txt／.md）｜行程內容以出發前官網確認為準<br>
+  ※所有外部連結以新分頁開啟；勾選狀態儲存於瀏覽器localStorage
+</footer>
+<button class="btn-print" onclick="window.print()">🖨 列印本頁</button>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.ck input[type=checkbox]');
+  var done=document.getElementById('done'),total=document.getElementById('total');
+  total.textContent=boxes.length;
+  function refresh(){var c=0;boxes.forEach(function(b){if(b.checked)c++;});done.textContent=c;}
+  boxes.forEach(function(b){
+    var k='twnck_'+b.getAttribute('data-k');
+    if(localStorage.getItem(k)==='1')b.checked=true;
+    b.addEventListener('change',function(){localStorage.setItem(k,b.checked?'1':'0');refresh();});
+  });
+  refresh();
+  document.querySelectorAll('details').forEach(function(d){d.addEventListener('toggle',function(){});});
+})();
+</script>
 </body>
 </html>
-
